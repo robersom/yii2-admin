@@ -1,6 +1,7 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\LinkPager;
 use yii\grid\GridView;
 use mdm\admin\components\RouteRule;
 use mdm\admin\components\Configs;
@@ -28,6 +29,9 @@ unset($rules[RouteRule::RULE_NAME]);
     GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pager' => [
+            'class' => LinkPager::class, // ← ESSENCIAL
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             [
